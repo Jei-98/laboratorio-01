@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head('Registrar mascota | PetMatch Mini')}"></head>
+<body>
+    <nav th:replace="~{fragments/navigation :: navigation}"></nav>
+
+    <main class="page-container">
+        <section class="content-panel">
+            <h1>Registrar mascota</h1>
+
+            <form th:action="@{/pets}" th:object="${petForm}" method="post">
+                <div>
+                    <label for="name">Nombre</label>
+                    <input id="name" type="text" th:field="*{name}">
+                </div>
+
+                <div>
+                    <label for="species">Especie</label>
+                    <input id="species" type="text" th:field="*{species}">
+                </div>
+
+                <div>
+                    <label for="age">Edad</label>
+                    <input id="age" type="number" th:field="*{age}">
+                </div>
+
+                <div>
+                    <label for="description">Descripción</label>
+                    <textarea id="description" th:field="*{description}"></textarea>
+                </div>
+
+                <button type="submit">Registrar</button>
+                <a th:href="@{/pets}">Cancelar</a>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
