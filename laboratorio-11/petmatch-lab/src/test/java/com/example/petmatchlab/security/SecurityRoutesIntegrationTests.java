@@ -30,7 +30,7 @@ class SecurityRoutesIntegrationTests {
     void shouldRedirectAnonymousVisitorToLogin() throws Exception {
         mockMvc.perform(get("/pets"))
             .andExpect(status().is3xxRedirection())
-            .andExpect(redirectedUrlPattern("**/login"));
+            .andExpect(redirectedUrlPattern("/login"));
     }
 
     @Test
